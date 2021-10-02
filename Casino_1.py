@@ -1,35 +1,74 @@
-def show_main_location():
-    # описываю место
-    print("Вы стоите возле указателя; на указателе написано:")
-    print("1 - пойти в казино")
-    print("2 - подождать")
+import os
+import random
 
-def show_kasino_location():
-    # описываю казино
+def show_location_home():
+    # описываем место
+    os.system("cls")
+    print("Вы дома")
+    print("1 - в казино")
+    print("2 - ждать")
+
+
+def show_location_casino():
+    # описываем место
+    os.system("cls")
     print("Вы в казино")
-    print("1 - вернуться к знаку")
-    print("2 - пойти играть")
-def show_cycle():
-    # пользователь делает выбор
-    user_choice = ""
-    while user_choice not in ("1", "2"):
+    print("1 - домой")
+    print("2 - ждать")
+    print("3 - сыграть")
+
+
+def show_user_choise():
+    # спросить пользователя
+    global user_choice
+    while user_choice not in ("1", "2", "3"):
         user_choice = input("введите номер варианта и нажмите Enter ")
 
-show_main_location()
-show_cycle()
-    #проверяю ответ
+user_choice = ""
+show_location_home()
+show_user_choise()
+    # проверить ответ пользователя
 if user_choice == "1":
-    show_kasino_location()
+    show_location_casino()
 else:
-    print("Жду")
-    show_main_location()
+    print("жду")
+    os.system("cls")
+    show_location_home()
 
-show_cycle()
-    #проверяю ответ
+
+def show_location_casino():
+    # описываем место
+    os.system("cls")
+    print("Вы в казино")
+    print("1 - домой")
+    print("2 - ждать")
+    print("3 - сыграть")
+
+user_choice = ""
+show_user_choise()
+    # проверить ответ пользователя
 if user_choice == "1":
-    show_main_location()
+    show_location_home()
+elif user_choice == "2":
+    print("жду")
+    os.system("cls")
+    show_location_casino()
 else:
-    print("Жду")
-    show_kasino_location()
+    show_gamble()
 
-input("Нажмите кнопку Enter для завершения")
+
+def show_gamble():
+    user_dice = random.randint(2, 12)
+    casino_dice = random.randint(2, 12)
+    print(f"Вы бросили кости, выпало {user_dice}")
+    print(f"Казино кости, выпало {casino_dice}")
+    if user_dice > casino_dice:
+        print("Вы победили")
+    elif user_dice < casino_dice:
+        print("Вы проиграли")
+    else:
+        print("Ничья")
+    input("Нажмите ENTER чтобы вернуться в казино")
+    show_location_casino()
+
+show_location_home()
