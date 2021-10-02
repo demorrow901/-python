@@ -44,18 +44,6 @@ def show_location_casino():
     print("2 - ждать")
     print("3 - сыграть")
 
-user_choice = ""
-show_user_choise()
-    # проверить ответ пользователя
-if user_choice == "1":
-    show_location_home()
-elif user_choice == "2":
-    print("жду")
-    os.system("cls")
-    show_location_casino()
-else:
-    show_gamble()
-
 
 def show_gamble():
     user_dice = random.randint(2, 12)
@@ -70,5 +58,18 @@ def show_gamble():
         print("Ничья")
     input("Нажмите ENTER чтобы вернуться в казино")
     show_location_casino()
+
+
+user_choice = ""
+show_user_choise()
+    # проверить ответ пользователя
+if user_choice == "1":
+    show_location_home()
+elif user_choice == "2":
+    print("жду")
+    os.system("cls")
+    show_location_casino()
+else:
+    show_gamble()
 
 show_location_home()
