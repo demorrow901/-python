@@ -24,10 +24,11 @@ def show_user_choise():
     while user_choice not in ("1", "2", "3"):
         user_choice = input("введите номер варианта и нажмите Enter ")
 
+
+    # проверить ответ пользователя
 user_choice = ""
 show_location_home()
 show_user_choise()
-    # проверить ответ пользователя
 if user_choice == "1":
     show_location_casino()
 else:
@@ -46,6 +47,7 @@ def show_location_casino():
 
 
 def show_gamble():
+    # бросить кости
     user_dice = random.randint(2, 12)
     casino_dice = random.randint(2, 12)
     print(f"Вы бросили кости, выпало {user_dice}")
@@ -60,9 +62,10 @@ def show_gamble():
     show_location_casino()
 
 
+
+    # проверить ответ пользователя
 user_choice = ""
 show_user_choise()
-    # проверить ответ пользователя
 if user_choice == "1":
     show_location_home()
 elif user_choice == "2":
