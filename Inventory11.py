@@ -36,5 +36,4 @@ def show_location_shop(user_name, user_money, user_inventory):
                     print(f"{user_name} ушел на базу")
 
 
-
 show_location_shop(user_name, user_money, user_inventory)
