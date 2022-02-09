@@ -15,7 +15,6 @@ def calculate_currency(tr_rate, ent_rate):
 
 # параметры окна
 window.title("Калькулятор валют")
-window.geometry("500x450")
 
 # радиокнопки принимают флоаты
 tr_rate = tk.DoubleVar()
@@ -26,46 +25,48 @@ ent_rate.set(1.00)
 
 
 # виджеты
-money_label = tk.Label(window, text="введите сумму")
-user_label = tk.Label(window, text="из какой валюты нужно перевести?")
+main_frame = tk.Frame(window, padx=20, pady=20)
+money_label = tk.Label(main_frame, text="введите сумму")
+user_label = tk.Label(main_frame, text="из какой валюты нужно перевести?")
 
-ent_0 = tk.Radiobutton(window, text="доллар США", variable=ent_rate, value=75.84)
-ent_1 = tk.Radiobutton(window, text="евро", variable=ent_rate, value=85.92)
+ent_0 = tk.Radiobutton(main_frame, text="доллар США", variable=ent_rate, value=75.84)
+ent_1 = tk.Radiobutton(main_frame, text="евро", variable=ent_rate, value=85.92)
 ent_2 = tk.Radiobutton(
-    window, text="кувейтский динар",
+    main_frame, text="кувейтский динар",
     variable=ent_rate, value=250.82
 )
 ent_3 = tk.Radiobutton(
-    window, text="иранский риал",
+    main_frame, text="иранский риал",
     variable=ent_rate, value=0.0018
 )
-ent_4 = tk.Radiobutton(window, text="рубль", variable=ent_rate, value=1)
+ent_4 = tk.Radiobutton(main_frame, text="рубль", variable=ent_rate, value=1)
 
-money_entry = tk.Entry(window)
+money_entry = tk.Entry(main_frame)
 
-cur_0 = tk.Radiobutton(window, text="доллар США", variable=tr_rate, value=75.84)
-cur_1 = tk.Radiobutton(window, text="евро", variable=tr_rate, value=85.92)
+cur_0 = tk.Radiobutton(main_frame, text="доллар США", variable=tr_rate, value=75.84)
+cur_1 = tk.Radiobutton(main_frame, text="евро", variable=tr_rate, value=85.92)
 cur_2 = tk.Radiobutton(
-    window, text="кувейтский динар",
+    main_frame, text="кувейтский динар",
     variable=tr_rate, value=250.82
 )
 cur_3 = tk.Radiobutton(
-    window, text="иранский риал",
+    main_frame, text="иранский риал",
     variable=tr_rate, value=0.0018
 )
-cur_4 = tk.Radiobutton(window, text="рубль", variable=tr_rate, value=1)
+cur_4 = tk.Radiobutton(main_frame, text="рубль", variable=tr_rate, value=1)
 
 result_label = tk.Label(
-    window,
+    main_frame,
     text="здесь появится результат"
 )
 
 calculate_button = tk.Button(
-    window, text="посчитать",
+    main_frame, text="посчитать",
     command=lambda: calculate_currency(tr_rate, ent_rate)
 )
 
 # разместить все виджеты в окне
+main_frame.pack()
 money_label.grid(row=0, column=0)
 money_entry.grid(row=1, column=0)
 
