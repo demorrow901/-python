@@ -41,9 +41,7 @@ ent_3 = tk.Radiobutton(
 )
 ent_4 = tk.Radiobutton(window, text="рубль", variable=ent_rate, value=1)
 
-ent_label = tk.Label(window, text="сколько валюты нужно перевести?")
 money_entry = tk.Entry(window)
-imp_label = tk.Label(window, text="в какую валюту нужно перевести?")
 
 cur_0 = tk.Radiobutton(window, text="доллар США", variable=tr_rate, value=75.84)
 cur_1 = tk.Radiobutton(window, text="евро", variable=tr_rate, value=85.92)
@@ -68,23 +66,23 @@ calculate_button = tk.Button(
 )
 
 # разместить все виджеты в окне
-money_label.pack()
-user_label.pack()
-ent_0.pack()
-ent_1.pack()
-ent_2.pack()
-ent_3.pack()
-ent_4.pack()
-ent_label.pack()
-money_entry.pack()
-imp_label.pack()
-cur_0.pack()
-cur_1.pack()
-cur_2.pack()
-cur_3.pack()
-cur_4.pack()
-calculate_button.pack()
-result_label.pack()
+money_label.grid(row=0, column=0)
+money_entry.grid(row=1, column=0)
+
+ent_0.grid(row=2, column=0)
+ent_1.grid(row=3, column=0)
+ent_2.grid(row=4, column=0)
+ent_3.grid(row=5, column=0)
+ent_4.grid(row=6, column=0)
+
+result_label.grid(row=8, column=2)
+
+cur_0.grid(row=1, column=2)
+cur_1.grid(row=2, column=2)
+cur_2.grid(row=3, column=2)
+cur_3.grid(row=4, column=2)
+cur_4.grid(row=5, column=2)
+calculate_button.grid(row=7, column=0)
 
 # запустить главный цикл окна
 window.mainloop()
